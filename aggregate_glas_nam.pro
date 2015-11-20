@@ -17,7 +17,7 @@ out_file = '/Users/yifan/work/projects/global_carbon/250m/glas/glas_nam_aggregat
 ;read in single GLAS shots from Lefsky's data.
 restore, '/Volumes/YifanLaCie1T/global/glas/lefsky/12_10_2012/global_comb_121012.idl'
 
-;filter for Southeast Asia
+;filter for North America
 xmin = -13343406.2352
 ymax = 8895604.1568
 xmax = xmin + 231.65635825*48000
