@@ -66,7 +66,7 @@ for i=0ULL, count-1 do begin
 	if glas_hash_table.HasKey(cur_hash_key) then begin
 		;list already exist, add shot to list
 		cur_list = glas_hash_table[cur_hash_key]
-		cur_list = [cur_list, agbs[loc_ind]]
+		glas_hash_table[cur_hash_key]  = [cur_list, agbs[loc_ind]]
 	endif else begin
 		;nothing exist here, add a new list and add the shot
 		newarray = [agbs[loc_ind]]
