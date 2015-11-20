@@ -65,12 +65,11 @@ for i=0ULL, count-1 do begin
 	if glas_hash_table.HasKey(cur_hash_key) then begin
 		;list already exist, add shot to list
 		cur_list = glas_hash_table[cur_hash_key]
-		cur_list.add, agbs[loc_ind]
+		cur_list = [cur_list,agbs[loc_ind]]
 	endif else begin
 		;nothing exist here, add a new list and add the shot
-		newList = list()
-		newList.add, agbs[loc_ind]
-		glas_hash_table[cur_hash_key] = newList
+		newarray = [agbs[loc_ind]]
+		glas_hash_table[cur_hash_key] = newarray
 	end
 endfor
 
@@ -90,11 +89,7 @@ for i=0ULL, nhash-1 do begin
 		coord_format = '(f12.2)'
 		hlorey_format = '(f6.2)'
 
-		hlorey_total = 0D	
-		for ii=0, n_shots-1 do begin
-			cur_location = glas_hash_table[hash_keys[i]]
-			hlorey_total += cur_location[ii]
-		endfor
+		hlorey_total = total[glas_hash_table[hash_keys[i]]
 		hlorey_avg = hlorey_total / n_shots
 	
 		outline = strtrim(string(cur_modcoord[0],format=coord_format),2) + ','
